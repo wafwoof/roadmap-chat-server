@@ -27,12 +27,12 @@ app.use(cors());
 app.options('*', cors());
 // --end of middleware
 
-app.use(express.static('content'))
+app.use(express.static('content'));
 
 // HTTP Routes
 app.get("/chat", (req, res) => {
 	console.log("--USER GET /chat");
-	res.sendFile("./content/roadmap-chat-client/index.html");
+	//res.sendFile("./content/roadmap-chat-client/index.html");
 });
 
 app.get("/chat/log", (req, res) => {
