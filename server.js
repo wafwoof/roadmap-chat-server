@@ -30,8 +30,7 @@ app.options('*', cors());
 // HTTP Routes
 app.get("/chat", (req, res) => {
 	console.log("--USER GET /chat");
-	res.send("Chat is working.");
-	res.send("The client files would now be sent over.");
+	res.sendFile("./content/roadmap-chat-client/index.html");
 });
 
 app.get("/chat/log", (req, res) => {
