@@ -27,6 +27,8 @@ app.use(cors());
 app.options('*', cors());
 // --end of middleware
 
+app.use(express.static('content'))
+
 // HTTP Routes
 app.get("/chat", (req, res) => {
 	console.log("--USER GET /chat");
