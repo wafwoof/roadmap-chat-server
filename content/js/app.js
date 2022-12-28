@@ -1,7 +1,6 @@
 window.addEventListener('DOMContentLoaded', (event) => {
   console.log('--BROWSER: DOM fully loaded and parsed.');
     
-  
   // All Main Code After This Comment
 
   var chatboxInput = document.getElementById("chat-box-input");
@@ -51,6 +50,9 @@ window.addEventListener('DOMContentLoaded', (event) => {
     const newMessage = document.createElement("div");
     newMessage.innerHTML = messageTemplateHTML;
     messageContainer.appendChild(newMessage);
+
+    // Scroll down to reveal the new message
+    newMessage.scrollIntoView();
 
     console.log("    --DEBUG: Finished displaying message!");
   }
@@ -119,7 +121,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
   // GET NEWEST MESSAGE
   // check periodically if new message is available and if returns TRUE then run getNewestMessage()
   setInterval(function() {
-      // test
       numberOfMessages();
   }, 1000);
   
