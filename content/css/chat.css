@@ -1,0 +1,118 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+
+    background-color: #c2c2c244;
+}
+
+h1 {
+    text-align: center;
+    margin: 12px;
+    font-size: 30px;
+
+    font-family: sans-serif;
+}
+
+h2 {
+    text-align: center;
+    margin: 12px;
+    font-size: 50px;
+
+    font-family: sans-serif;
+}
+
+h3 {
+    text-align: center;
+    margin: 0px;
+    font-size: 25px;
+
+    font-family: sans-serif;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+}
+
+.container .chat-box-container {
+        
+    height: 40px; 
+    position: fixed; 
+    bottom:0px;
+    width:100%; 
+    background-color: #393838; 
+    opacity: 1;
+
+    background-color: #393838;
+
+    
+}
+
+.chat-input {
+    display: inline;
+    margin: 0;
+
+    min-width: 50px;
+    max-width: 2080px;
+    width: 80%;
+    height: 40px;
+    font-size: 25px;
+
+    border-width: 5px;
+}
+
+/*.chat-button {
+    display: inline;
+    margin: 0;
+
+    width: 10%;
+    height: 40px;
+    font-size: 20px;
+
+    border-width: 5px;
+
+    padding-left: 0;
+    padding-right: 0;
+
+}
+*/
+
+.chat-button {
+    display: inline;
+    margin: 0;
+
+    width: 15%;
+    height: 40px;
+    font-size: 20px;
+
+    border-width: 5px;
+
+    padding-left: 0;
+    padding-right: 0;
+
+    /* make the text horizontally centered on mobile */
+    text-align: center;
+    /* make the text vertically centered on mobile */
+    line-height: 40px;
+
+}
+
+.message-container .message {
+    margin-bottom: 10px;
+    color: black;
+
+    position: relative;
+    height: auto;
+}
+
+.message-container .message p{
+    font-size: 20px;
+    font-family: monospace;
+}
+
+.spacer {
+    height: 5%;
+}
