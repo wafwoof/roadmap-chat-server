@@ -9,7 +9,7 @@ const app = express();
 const port = 8801; // set to 8801 to obscure app development
 
 var messageLogFile = require("./logs/chat-log.json");
-var numberOfMessages = 1;
+var numberOfMessages = 40;
 //const messageLogFile = fs.readFileSync("./logs/chat-log.json");
 
 // API Middleware (A.K.A. Death to CORS) 
@@ -21,7 +21,7 @@ app.use(function (req, res, next) {
 	res.header("Access-Control-Allow-Origin", "*");
 	res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 	next(); // Why is this necessary???
-})
+});
 app.use(express.json());
 app.use(cors());
 app.options('*', cors());
@@ -41,8 +41,6 @@ app.get("/chat/log", (req, res) => {
 });
 
 app.get("/chat/log/numberof", (req, res) => {
-	//console.log("--USER GET /chat/log/numberof"); // Was getting too much. Maybe do this every 100 calls or something.
-
 	res.status(200).send({ "number": numberOfMessages });
 })
 
@@ -75,7 +73,7 @@ app.post("/chat/submit", (req, res) => {
 		// 1.1. Write New Length to track messages on client-side
 		numberOfMessages++;
 		// 2. push to messages body
-		json.messages.push(body);
+		json.push(body);
 		// 3. write changes to file and sync to make it immediately available
 		fs.writeFileSync("./logs/chat-log.json", JSON.stringify(json));
 		// 4. Reload Log File into memory
