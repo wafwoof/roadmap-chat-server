@@ -54,4 +54,5 @@ Please contact me at [kaz@rdmap.dev] if you come across any issues while using t
 ## API Resources:
 /chat, /chat/log, /chat/log/numberof, /chat/submit
 
+(/chat will be slightly outdated until I push the full 0.1.1b update)
 
