@@ -27,7 +27,7 @@ app.use(cors());
 app.options('*', cors());
 // --end of middleware
 
-app.use(express.static('content'));
+app.use(express.static('content')); // open up content folder to outside world
 
 // HTTP Routes
 app.get("/chat", (req, res) => {
