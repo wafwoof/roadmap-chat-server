@@ -7,8 +7,8 @@ function shrinkDatabase() {
     var fileSizeInBytes = stats["size"];
     var fileSizeInMegabytes = fileSizeInBytes / 1000000.0;
     console.log("JSON DB is " + fileSizeInMegabytes + " megabytes");
-    // 0.04mB = 40kB
-    if (fileSizeInMegabytes > 0.04) {
+    // 0.01mB = 10kB
+    if (fileSizeInMegabytes > 0.01) {
         // DB TOO LARGE, MUST SHRINK DB
         console.log("DB file size is too big, must shrink to prevent data usage.");
 
@@ -27,6 +27,6 @@ function shrinkDatabase() {
     }
 }
 
-cron.schedule('*/30 * * * *', () => {
+cron.schedule('*/5 * * * *', () => {
     shrinkDatabase();
   });
