@@ -15,7 +15,7 @@ var numberOfMessages = 40;
 // API Middleware (A.K.A. Death to CORS) 
 // Updated 2022-12-22
 app.use(function (req, res, next) {
-	
+
 	express.json();
 
 	res.header("Access-Control-Allow-Origin", "*");
@@ -46,7 +46,7 @@ app.get("/chat/log/numberof", (req, res) => {
 
 app.post("/chat/submit", (req, res) => {
 	console.log("--USER POST /chat/submit");
-	console.log("--DEVELOPMENT REQ: " + req); // for development
+	console.log("--DEVELOPMENT REQUEST INFO: " + req.ip); // for development
 	
 	const { username } = req.body;
 	const { content } = req.body;
@@ -63,24 +63,31 @@ app.post("/chat/submit", (req, res) => {
 	res.send({
 		message: "--ROADMAP CHAT SERVER: 200 MESSAGE RECEIVED",
 	});
-	console.log(username, "says:", content);
-	
-	// WRITE TO MESSAGELOGFILE JSON DB FILE
-	console.log("--WRITING TO: chat-log.json");
-	// 1. Read chatlog file, load into memory as json
-	fs.readFile("./logs/chat-log.json", function (err, data) {
-		var json = JSON.parse(data);
-		// 1.1. Write New Length to track messages on client-side
-		numberOfMessages++;
-		// 2. push to messages body
-		json.push(body);
-		// 3. write changes to file and sync to make it immediately available
-		fs.writeFileSync("./logs/chat-log.json", JSON.stringify(json));
-		// 4. Reload Log File into memory
-		delete require.cache[require.resolve("./logs/chat-log.json")];
-		messageLogFile = require("./logs/chat-log.json");
-		console.log("--CHANGES WRITTEN & LOG FILE RELOADED");
-	});
+
+	// CHECK MESSAGE & USERNAME LENGTH
+	if (content.length > 150 || username.length > 20) {
+		console.log(username, " POST SIZE = ", content.length, " DENIED");
+	}
+	else if (content.length <= 150 || username.length <= 20) {	
+        	console.log(username, " POST SIZE = ", content.length, " ACCEPTED");
+
+        	// WRITE TO MESSAGELOGFILE JSON DB FILE
+        	console.log("--WRITING TO: chat-log.json");
+        	// 1. Read chatlog file, load into memory as json
+        	fs.readFile("./logs/chat-log.json", function (err, data) {
+                	var json = JSON.parse(data);
+                	// 1.1. Write New Length to track messages on client-side
+                	numberOfMessages++;
+                	// 2. push to messages body
+                	json.push(body);
+                	// 3. write changes to file and sync to make it immediately available
+                	fs.writeFileSync("./logs/chat-log.json", JSON.stringify(json));
+                	// 4. Reload Log File into memory
+                	delete require.cache[require.resolve("./logs/chat-log.json")];
+                	messageLogFile = require("./logs/chat-log.json");
+                	console.log("--CHANGES WRITTEN & LOG FILE RELOADED");
+        	});
+	}
 });
 // END OF HTTP ROUTES
 
@@ -92,3 +99,4 @@ app.listen(port, function(err){
 	console.log("THIS IS DEVELOPMENT SOFTWARE AND COMES WITH ABSOLUTELY NO WARRANTY.");
 	console.log("Available resources: /chat, /chat/log, /chat/log/numberof, /chat/submit");
 })
+
