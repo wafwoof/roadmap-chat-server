@@ -32,7 +32,7 @@ app.use(express.static('content')); // open up content folder to outside world
 // HTTP Routes
 app.get("/chat", (req, res) => {
 	console.log("--USER GET /chat");
-	//res.sendFile("./content/roadmap-chat-client/index.html");
+	res.sendFile("./content/roadmap-chat-client/index.html");
 });
 
 app.get("/chat/log", (req, res) => {
