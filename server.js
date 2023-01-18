@@ -30,11 +30,6 @@ app.options('*', cors());
 app.use(express.static('content')); // open up content folder to outside world
 
 // HTTP Routes
-app.get("", (req, res) => {
-	console.log("HOMEPAGE REQUEST");
-	res.sendFile("./content/index.html");
-})
-
 app.get("/chat", (req, res) => {
 	console.log("--USER GET /chat");
 	//res.sendFile("./content/roadmap-chat-client/index.html");
