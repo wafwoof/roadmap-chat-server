@@ -30,7 +30,7 @@ app.options('*', cors());
 app.use(express.static('content')); // open up content folder to outside world
 
 // HTTP Routes
-app.get("/", (req, res) => {
+app.get("", (req, res) => {
 	console.log("HOMEPAGE REQUEST");
 	res.sendFile("./content/index.html");
 })
