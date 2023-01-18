@@ -1,0 +1,143 @@
+* {
+    margin: 0;
+    padding: 0;
+
+    --primary-font: 'Roboto', sans-serif;
+    --secondary-font: 'Roboto Mono', monospace;
+}
+
+.header {
+    position: fixed;
+    z-index: 1;
+    background-color: #000;
+    height: 50px;
+    width: 100%;
+}
+
+nav {
+    float: left;
+    margin-right: 20px;
+    margin-top: 15px;
+}
+
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-family: var(--primary-font);
+
+    padding-left: 10px;
+}
+
+.banner {
+    position: relative;
+    background-color: grey;
+    height: 400px;
+
+    border: #000;
+    border-width: 5px;
+    border-style: solid;
+}
+
+.banner h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: black;
+
+    font-size: 40px;
+    text-align: center;
+    font-family: var(--primary-font);
+}
+
+.banner p {
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: black;
+
+    font-size: 30px;
+    text-align: center;
+    font-family: var(--secondary-font);
+}
+
+.projects {
+    position: relative;
+    background-color: lightgray;
+    max-height: fit-content;
+}
+
+.projects h2 {
+    padding: 10px;
+    
+    color: #000;
+    font-size: x-large;
+    font-family: var(--primary-font);
+}
+
+.project-tile {
+    background-color: grey;
+    border-color: #000;
+    border-width: 4px;
+    border-style: solid;
+    border-radius: 10px;
+
+    margin: 10px;
+}
+
+.project-tile h2 {
+    padding: 4px;
+    
+    color: #000;
+    font-size: large;
+    font-family: var(--primary-font);
+}
+
+.project-tile h2 a {
+    color: black;
+    text-decoration: none;
+}
+
+.project-tile p{
+    padding: 4px;
+    
+    font-size: medium;
+    font-family: var(--secondary-font);
+}
+
+.footer {
+    position: relative;
+    height: 100px;
+    background-color: #000;
+}
+
+.footer p {
+    padding: 10px;
+    
+    font-size: large;
+    font-family: var(--primary-font);
+    color: #fff;
+}
+
+.documentation {
+    position: relative;
+    background-color: lightgray;
+    height: fit-content;
+}
+
+.documentation h2 {
+    padding: 10px;
+    
+    color: #000;
+    font-size: x-large;
+    font-family: var(--primary-font);
+}
+
+.documentation p {
+    padding: 50px;
+
+    font-size: medium;
+    font-family: var(--secondary-font);
+}
